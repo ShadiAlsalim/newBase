@@ -28,7 +28,7 @@ use App\Http\Controllers\TestingControllers;
 
 use App\Http\Controllers\company\CompanyCreateController;
 use App\Http\Controllers\jobOpp\CreateJobOppController;
-
+use App\Http\Controllers\jobOpp\ShowJobOppController;
 
 use Illuminate\Http\Request;
 use App\Models\Role;
@@ -96,10 +96,11 @@ Route::get('/ShowCompany/{id}', [ShowCompanyController::class, 'show']);//done
 Route::get('/ShowAllCompanies', [ShowCompanyController::class, 'show_all']);//done
 Route::post('/PostJob', [CreateJobOppController::class, 'create']);//done
 Route::delete('/DeleteJob/{id}', [DeleteJobOppController::class, 'delete']);//done
-
+Route::get('/ShowAllJobs', [ShowJobOppController::class, 'show_all']);//done
+Route::get('/ShowJob/{id}', [ShowJobOppController::class, 'show']);//done
 /////////////////\\ADMIN//\\\\\\\\\\\\\\\\\\\
-Route::post('/ApproveCompany/{id}', [ApproveCompanyController::class, 'approve']);
-////// END SHADI0
+Route::post('/ApproveCompany/{id}', [ApproveCompanyController::class, 'approve']);//done
+////// END SHADI
 
 //////// return data 
 Route::get('/return-interests', [dataControllers::class, 'interests']);

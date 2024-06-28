@@ -4,7 +4,7 @@ namespace App\Services\jobOpp;
 use App\Models\job_opp;
 use App\Models\company;
 use Laravel\Sanctum\PersonalAccessToken;
-
+use Throwable;
 
 class DeleteJobOppService
 {
@@ -26,11 +26,18 @@ class DeleteJobOppService
                 'data' => []
             ];
         } else {
-            job_opp::destroy($id);
-            return [
-                'message' => 'deleted',
-                'data' => []
-            ];
+            try {
+                job_opp::destroy($id);
+                return [
+                    'message' => 'deleted',
+                    'data' => []
+                ];
+            } catch (Throwable $e) {
+                return [
+                    'message' => $e->getMessage(),
+                    'data' => []
+                ];
+            }
         }
     }
 
