@@ -10,6 +10,7 @@ use App\Http\Controllers\auth\ResendCodeControllers;
 use App\Http\Controllers\auth\ResetPasswordControllers;
 use App\Http\Controllers\auth\VerificationControllers;
 use App\Http\Controllers\company\ShowCompanyController;
+use App\Http\Controllers\company\ShowCompanyJobOppsController;
 use App\Http\Controllers\dataControllers;
 use App\Http\Controllers\employee\AddCertificatesControllers;
 use App\Http\Controllers\employee\AddExperienceControllers;
@@ -98,6 +99,7 @@ Route::post('/PostJob', [CreateJobOppController::class, 'create']);//done
 Route::delete('/DeleteJob/{id}', [DeleteJobOppController::class, 'delete']);//done
 Route::get('/ShowAllJobs', [ShowJobOppController::class, 'show_all']);//done
 Route::get('/ShowJob/{id}', [ShowJobOppController::class, 'show']);//done
+Route::get('/ShowCompanyJobs', [ShowCompanyJobOppsController::class, 'show']);//done
 /////////////////\\ADMIN//\\\\\\\\\\\\\\\\\\\
 Route::post('/ApproveCompany/{id}', [ApproveCompanyController::class, 'approve']);//done
 ////// END SHADI
