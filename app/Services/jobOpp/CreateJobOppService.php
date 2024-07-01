@@ -71,7 +71,7 @@ class CreateJobOppService
         $job_type_id = JobTimeType::where('id', $request['job_time_type_id'])->first();
         if (!$job_type_id) {
             return [
-                'message' => 'job type not found',
+                'message' => 'job time type not found',
                 'data' => []
             ];
         }

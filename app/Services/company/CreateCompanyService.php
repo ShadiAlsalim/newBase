@@ -1,9 +1,8 @@
 <?php
 namespace App\Services\company;
 
-use App\Models\User;
+use Storage;
 use App\Models\company;
-use App\Models\employee;
 use Laravel\Sanctum\PersonalAccessToken;
 use Throwable;
 
@@ -23,7 +22,24 @@ class CreateCompanyService
             $company['description'] = $request['description'];
             $company['address'] = $request['address'];
             $company['job_idustry_id'] = $request['job_industry_id'];
-            $company['approvrd'] = false;
+            $company['approved'] = false;
+            $logo = $request->file('logo');
+            $banner = $request->file('banner');
+            $logo_path = "";
+            $banner_path = "";
+            if ($logo) {
+                $company['logo'] = $request->file('logo');
+                $logo_name = time() . '.' . $logo->getClientOriginalExtension();
+                $logo_path = Storage::disk('public')->put($logo_name, $logo); // Save in public disk
+                $company['logo'] = $logo_path;
+            }
+            if ($banner) {
+                $company['banner'] = $request->file('banner');
+                $banner_name = time() . '.' . $logo->getClientOriginalExtension();
+                $banner_path = Storage::disk('public')->put($banner_name, $banner); // Save in public disk
+                $company['banner'] = $banner_path;
+            }
+
             $company->save();
 
             return [
@@ -33,7 +49,7 @@ class CreateCompanyService
         } catch (Throwable $error) {
             return [
                 'message' => $error->getMessage(),
-                'data' => []
+                'data' => [],
             ];
         }
     }

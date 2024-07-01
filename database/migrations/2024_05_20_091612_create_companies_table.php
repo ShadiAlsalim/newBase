@@ -21,7 +21,9 @@ return new class extends Migration {
             $table->string('address')->nullable();
             // $table->foreignId('city_id')->nullable()->cascadeOnDelete(); 
             $table->foreignId('job_idustry_id')->nullable()->cascadeOnDelete();
-            $table->boolean('approved')->nullable;
+            $table->boolean('approved')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('banner')->nullable();
             $table->foreignId('user_id')->constrained('users')->nullable()->cascadeOnDelete();
             $table->timestamps();
         });

@@ -12,9 +12,9 @@ use Throwable;
 class ShowJobOppController extends Controller
 {
     private ShowJobOppService $show;
-    public function __construct(ShowJobOppService $create)
+    public function __construct(ShowJobOppService $show)
     {
-        $this->create = $create;
+        $this->show = $show;
     }
 
     public function show(Request $request, $id)

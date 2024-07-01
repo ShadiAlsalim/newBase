@@ -16,7 +16,9 @@ class company extends Model
         'description',
         'website',
         'mobile_number',
-        'approved'
+        'approved',
+        'logo',
+        'banner'
     ];
 
 

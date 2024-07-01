@@ -22,34 +22,42 @@ class job_opp extends Model
         'years_of_experiences',
         'number_of_vacancies',
         'responsibility',
+        'job_requirements',
         'job_description',
         'address',
     ];
-    public function company (){
+    public function company()
+    {
         return $this->belongsTo(company::class);
     }
 
-    public function city (){
+    public function city()
+    {
         return $this->belongsTo(city::class);
     }
 
-    public function EducationLevel (){
+    public function EducationLevel()
+    {
         return $this->belongsTo(EducationLevel::class);
     }
 
-    public function JobLevel (){
+    public function JobLevel()
+    {
         return $this->belongsTo(JobLevel::class);
     }
 
-    public function JobTitle (){
+    public function JobTitle()
+    {
         return $this->belongsTo(JobTitle::class);
     }
 
-    public function JobTimeType (){
+    public function JobTimeType()
+    {
         return $this->belongsTo(JobTimeType::class);
     }
 
-    public function JobIndustry (){
+    public function JobIndustry()
+    {
         return $this->belongsTo(JobIndustry::class);
     }
 
