@@ -99,7 +99,7 @@ Route::post('/PostJob', [CreateJobOppController::class, 'create']);//done
 Route::delete('/DeleteJob/{id}', [DeleteJobOppController::class, 'delete']);//done
 Route::get('/ShowAllJobs', [ShowJobOppController::class, 'show_all']);//done
 Route::get('/ShowJob/{id}', [ShowJobOppController::class, 'show']);//done
-Route::get('/ShowCompanyJobs', [ShowCompanyJobOppsController::class, 'show']);//done
+Route::get('/ShowCompanyJobs/{id}', [ShowCompanyJobOppsController::class, 'show']);//done
 /////////////////\\ADMIN//\\\\\\\\\\\\\\\\\\\
 Route::post('/ApproveCompany/{id}', [ApproveCompanyController::class, 'approve']);//done
 ////// END SHADI
