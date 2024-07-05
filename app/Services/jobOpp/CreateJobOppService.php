@@ -33,42 +33,42 @@ class CreateJobOppService
             ];
         }
 
-        $city = city::where('id', $request['city_id'])->first();
+        $city = city::where('name', $request['city'])->first();
         if (!$city) {
             return [
                 'message' => 'city not found',
                 'data' => []
             ];
         }
-        $job_level_id = JobLevel::where('id', $request['job_level_id'])->first();
+        $job_level_id = JobLevel::where('name', $request['job_level'])->first();
         if (!$job_level_id) {
             return [
                 'message' => 'job level not found',
                 'data' => []
             ];
         }
-        $job_title_id = JobTitle::where('id', $request['job_title_id'])->first();
+        $job_title_id = JobTitle::where('name', $request['job_title'])->first();
         if (!$job_title_id) {
             return [
                 'message' => 'job title not found',
                 'data' => []
             ];
         }
-        $job_industry_id = JobIndustry::where('id', $request['job_idustry_id'])->first();
+        $job_industry_id = JobIndustry::where('name', $request['job_idustry'])->first();
         if (!$job_industry_id) {
             return [
                 'message' => 'job industry not found',
                 'data' => []
             ];
         }
-        $education_level_id = EducationLevel::where('id', $request['education_level_id'])->first();
+        $education_level_id = EducationLevel::where('name', $request['education_level'])->first();
         if (!$education_level_id) {
             return [
                 'message' => 'education level not found',
                 'data' => []
             ];
         }
-        $job_type_id = JobTimeType::where('id', $request['job_time_type_id'])->first();
+        $job_type_id = JobTimeType::where('name', $request['job_time_type'])->first();
         if (!$job_type_id) {
             return [
                 'message' => 'job time type not found',
@@ -93,9 +93,28 @@ class CreateJobOppService
             'education_level_id' => $education_level_id['id'],
             'job_type_id' => $job_type_id['id']
         ]);
+        $copy = [
+            'id' => $new_job['id'],
+            'job_description' => $request['job_description'],
+            'job_requirements' => $request['job_requirements'],
+            'responsibility' => $request['responsibility'],
+            'number_of_vacancies' => $request['number_of_vacancies'],
+            'years_of_experiences' => $request['years_of_experiences'],
+            'address' => $request['address'],
+            'gender' => $request['gender'],
+            'job_type' => $request['job_type'],
+            'portfolio_check' => $request['portfolio_check'],
+            'company_id' => $company['id'],
+            'city' => $city['name'],
+            'job_level' => $job_level_id['name'],
+            'job_title' => $job_title_id['name'],
+            'job_idustry' => $job_industry_id['name'],
+            'education_level' => $education_level_id['name'],
+            'job_time_type' => $job_type_id['name']
+        ];
         return [
             'message' => 'created',
-            'data' => $new_job
+            'data' => $copy
         ];
         //]);
     }

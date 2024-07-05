@@ -30,13 +30,13 @@ class CreateCompanyService
             if ($logo) {
                 $company['logo'] = $request->file('logo');
                 $logo_name = time() . '.' . $logo->getClientOriginalExtension();
-                $logo_path = Storage::disk('public')->put($logo_name, $logo); // Save in public disk
+                $logo_path = Storage::disk('logo')->put($logo_name, $logo); // Save in public/logo disk
                 $company['logo'] = $logo_path;
             }
             if ($banner) {
                 $company['banner'] = $request->file('banner');
-                $banner_name = time() . '.' . $logo->getClientOriginalExtension();
-                $banner_path = Storage::disk('public')->put($banner_name, $banner); // Save in public disk
+                $banner_name = time() . '.' . $banner->getClientOriginalExtension();
+                $banner_path = Storage::disk('banner')->put($banner_name, $banner); // Save in public/banner disk
                 $company['banner'] = $banner_path;
             }
 
