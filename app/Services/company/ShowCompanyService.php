@@ -13,6 +13,8 @@ class ShowCompanyService
     public function show($request, $id)
     {
         $company = company::find($id);
+        $industry = JobIndustry::find($company['job_industry_id']);
+        $company['job_industry_id'] = $industry['name'];
         if ($company) {
             return [
                 'message' => 'found',
