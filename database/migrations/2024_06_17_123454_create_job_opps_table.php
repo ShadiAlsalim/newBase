@@ -19,7 +19,10 @@ return new class extends Migration {
             // $table->addColumn('salary1', 'salary2')->nullable();
             // $table->integer('salary_range')->nullable();
             $table->integer('years_of_experiences')->nullable();
-            $table->string('address')->nullable();                         //if the jobtype = onsite
+            $table->string('address')->nullable();
+            $table->integer('min_age')->nullable();
+            $table->integer('max_age')->nullable();
+            $table->string('salary');
             $table->enum('gender', ['male', 'female'])->nullable();  //all  
             $table->enum('job_type', ['onsite', 'remote'])->nullable();
             $table->boolean('portfolio_check')->nullable();

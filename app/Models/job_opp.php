@@ -25,6 +25,9 @@ class job_opp extends Model
         'job_requirements',
         'job_description',
         'address',
+        'min_age',
+        'max_age',
+        'salary'
     ];
     public function company()
     {
