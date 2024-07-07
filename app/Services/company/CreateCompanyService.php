@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\company;
 
+use App\Models\JobIndustry;
 use Storage;
 use App\Models\company;
 use Laravel\Sanctum\PersonalAccessToken;
@@ -21,7 +22,16 @@ class CreateCompanyService
             $company['website'] = $request['website'];
             $company['description'] = $request['description'];
             $company['address'] = $request['address'];
-            $company['job_idustry_id'] = $request['job_industry_id'];
+
+            $industry = JobIndustry::where('name', $request['job_industry'])->first();
+            if (!$industry) {
+                return [
+                    'message' => 'industry not found',
+                    'data' => []
+                ];
+            }
+            $company['job_idustry_id'] = $industry['id'];
+
             $company['approved'] = false;
             $logo = $request->file('logo');
             $banner = $request->file('banner');
