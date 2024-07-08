@@ -35,4 +35,14 @@ class ShowCompanyController extends Controller
             return ResponseService::error('An error occured', $error->getMessage());
         }
     }
+
+    public function showToken(Request $request)
+    {
+        try {
+            $data = $this->show->showFromToken($request);
+            return ResponseService::success($data['message'], $data['data']);
+        } catch (Throwable $error) {
+            return ResponseService::error('An error occured', $error->getMessage());
+        }
+    }
 }

@@ -33,6 +33,7 @@ class CreateCompanyService
             $company['job_idustry_id'] = $industry['id'];
 
             $company['approved'] = false;
+
             $logo = $request->file('logo');
             $banner = $request->file('banner');
             $logo_path = "";
