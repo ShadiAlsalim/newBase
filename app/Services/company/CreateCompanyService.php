@@ -52,9 +52,11 @@ class CreateCompanyService
 
             $company->save();
 
+            $copy = $company;
+            $copy['job_idustry_id'] = $industry['name'];
             return [
                 'message' => 'created',
-                'data' => $company
+                'data' => $copy
             ];
         } catch (Throwable $error) {
             return [

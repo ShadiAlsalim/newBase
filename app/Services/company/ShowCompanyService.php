@@ -13,8 +13,8 @@ class ShowCompanyService
     public function show($request, $id)
     {
         $company = company::find($id);
-        $industry = JobIndustry::find($company['job_industry_id']);
-        $company['job_industry_id'] = $industry['name'];
+        $industry = JobIndustry::find($company['job_idustry_id']);
+        $company['job_idustry_id'] = $industry['name'];
         if ($company) {
             return [
                 'message' => 'found',
@@ -33,8 +33,8 @@ class ShowCompanyService
         $company = company::get();
         if ($company) {
             foreach ($company as $one) {
-                $industry = JobIndustry::find($one['job_industry_id']);
-                $one['job_industry_id'] = $industry['name'];
+                $industry = JobIndustry::find($one['job_idustry_id']);
+                $one['job_idustry_id'] = $industry['name'];
             }
             return [
                 'message' => 'found',
