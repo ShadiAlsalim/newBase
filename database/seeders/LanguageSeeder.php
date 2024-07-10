@@ -25,5 +25,8 @@ class LanguageSeeder extends Seeder
         Language::create([
             'name'=> 'ُEspanol',
           ]); 
+        Language::create([
+            'name'=> 'other',
+          ]); 
     }
 }
