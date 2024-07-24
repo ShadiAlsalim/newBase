@@ -12,9 +12,8 @@ return new class extends Migration {
     {
         Schema::create('job_opps', function (Blueprint $table) {
             $table->id();
-            $table->string('job_description')->nullable();
-            $table->string('job_requirements')->nullable();
-            $table->string('responsibility')->nullable();
+           
+            $table->string('name')->nullable();
             $table->integer('number_of_vacancies')->nullable();
             // $table->addColumn('salary1', 'salary2')->nullable();
             // $table->integer('salary_range')->nullable();
@@ -33,6 +32,8 @@ return new class extends Migration {
             $table->foreignId('job_idustry_id')->nullable()->cascadeOnDelete();
             $table->foreignId('education_level_id')->nullable()->cascadeOnDelete();
             $table->foreignId('job_type_id')->nullable()->cascadeOnDelete();
+            $table->string('job_description')->nullable();
+            $table->string('job_requirements')->nullable();
             $table->timestamps();
         });
     }

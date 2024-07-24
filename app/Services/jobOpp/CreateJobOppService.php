@@ -78,7 +78,7 @@ class CreateJobOppService
         $new_job = job_opp::create([
             'job_description' => $request['job_description'],
             'job_requirements' => $request['job_requirements'],
-            'responsibility' => $request['responsibility'],
+            'name' => $request['name'],
             'number_of_vacancies' => $request['number_of_vacancies'],
             'years_of_experiences' => $request['years_of_experiences'],
             'address' => $request['address'],
@@ -100,7 +100,7 @@ class CreateJobOppService
             'id' => $new_job['id'],
             'job_description' => $request['job_description'],
             'job_requirements' => $request['job_requirements'],
-            'responsibility' => $request['responsibility'],
+            'name' => $request['name'],
             'number_of_vacancies' => $request['number_of_vacancies'],
             'years_of_experiences' => $request['years_of_experiences'],
             'address' => $request['address'],

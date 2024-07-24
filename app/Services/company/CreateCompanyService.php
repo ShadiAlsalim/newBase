@@ -22,6 +22,7 @@ class CreateCompanyService
             $company['website'] = $request['website'];
             $company['description'] = $request['description'];
             $company['address'] = $request['address'];
+            $company['email'] = $request['email'];
 
             $industry = JobIndustry::where('name', $request['job_industry'])->first();
             if (!$industry) {

@@ -8,14 +8,14 @@ class ShowJobOppService
 {
     public function show($request, $id)
     {
-        $token = PersonalAccessToken::findToken($request->bearerToken());
-        $user = $token->tokenable;
-        if (!$user) {
-            return [
-                'message' => 'not authorized',
-                'data' => []
-            ];
-        }
+        // $token = PersonalAccessToken::findToken($request->bearerToken());
+        // $user = $token->tokenable;
+        // if (!$user) {
+        //     return [
+        //         'message' => 'not authorized',
+        //         'data' => []
+        //     ];
+        // }
         $job = job_opp::find($id);
         if ($job) {
             return [

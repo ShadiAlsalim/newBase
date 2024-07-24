@@ -4,7 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 return new class extends Migration {
+
     /**
      * Run the migrations.
      */
@@ -13,6 +15,7 @@ return new class extends Migration {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+
             $table->string('mobile_number')->nullable();
             // $table->integer('company_email')->nullable();  
             $table->string('website')->nullable();
@@ -24,7 +27,9 @@ return new class extends Migration {
             $table->boolean('approved')->nullable();
             $table->string('logo')->nullable();
             $table->string('banner')->nullable();
+            $table->string('email')->nullable();
             $table->foreignId('user_id')->constrained('users')->nullable()->cascadeOnDelete();
+
             $table->timestamps();
         });
     }
@@ -36,4 +41,5 @@ return new class extends Migration {
     {
         Schema::dropIfExists('companies');
     }
+
 };

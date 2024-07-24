@@ -14,22 +14,25 @@ class EducationLevelSeeder extends Seeder
     public function run(): void
     {
         EducationLevel::create([
-            'name'=> 'بكالوريا',
+            'name'=> 'Bachelors Degree',
           ]);  
 
         EducationLevel::create([
-            'name'=> 'جامعة',
+            'name'=> 'University Degree',
           ]);
 
         EducationLevel::create([
-            'name'=> 'ماجستير',
+            'name'=> 'Master Degree',
           ]);   
 
         EducationLevel::create([
-            'name'=> 'دبلوم',
+            'name'=> 'Diploma',
           ]);   
         EducationLevel::create([
-            'name'=> 'دكتراه',
+            'name'=> 'Doctorate Degree',
+          ]);   
+        EducationLevel::create([
+            'name'=> 'other',
           ]);   
     }
     

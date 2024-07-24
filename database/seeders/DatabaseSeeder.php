@@ -62,5 +62,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LanguageLevelSeeder::class
         ]);
+
+        $this->call([
+            JobOppTestSeeder::class
+        ]);
     }
 }

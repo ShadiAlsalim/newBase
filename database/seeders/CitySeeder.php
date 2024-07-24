@@ -33,7 +33,7 @@ class CitySeeder extends Seeder
             'name'=> 'aleppo',
           ]);          
         city::create([
-            'name'=> 'ohter',
+            'name'=> 'other',
           ]);          
     }
     

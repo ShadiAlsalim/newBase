@@ -45,4 +45,14 @@ class ShowCompanyController extends Controller
             return ResponseService::error('An error occured', $error->getMessage());
         }
     }
+
+    public function showJobsFromToken(Request $request)
+    {
+        try {
+            $data = $this->show->showJobsFromToken($request);
+            return ResponseService::success($data['message'], $data['data']);
+        } catch (Throwable $error) {
+            return ResponseService::error('An error occured', $error->getMessage());
+        }
+    }
 }

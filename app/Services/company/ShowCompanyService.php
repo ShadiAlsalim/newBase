@@ -4,6 +4,7 @@ namespace App\Services\company;
 use App\Models\JobIndustry;
 use App\Models\User;
 use App\Models\company;
+use App\Models\job_opp;
 use App\Models\employee;
 use Laravel\Sanctum\PersonalAccessToken;
 use Throwable;
@@ -65,6 +66,28 @@ class ShowCompanyService
         return [
             'message' => 'found',
             'data' => $company
+        ];
+    }
+
+    public function showJobsFromToken($request)
+    {
+        $token = PersonalAccessToken::findToken($request->bearerToken());
+        $user = $token->tokenable;
+
+        if (!$user->hasRole('company')) {
+            return [
+                'message' => 'not a company',
+                'data' => []
+            ];
+        }
+
+        $company = company::where('user_id', $user['id'])->first();
+        $jobs = job_opp::where('company_id', $company['id'])->get();
+        $industry = JobIndustry::find($company['job_idustry_id']);
+        $company['job_idustry_id'] = $industry['name'];
+        return [
+            'message' => 'found',
+            'data' => $jobs
         ];
     }
 }

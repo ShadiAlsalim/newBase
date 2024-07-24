@@ -21,7 +21,7 @@ class job_opp extends Model
         'gender',
         'years_of_experiences',
         'number_of_vacancies',
-        'responsibility',
+        'name',
         'job_requirements',
         'job_description',
         'address',

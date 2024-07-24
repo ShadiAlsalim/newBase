@@ -4,6 +4,10 @@ namespace App\Services\employee;
 use App\Models\city;
 use App\Models\employee;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+
+
 
 
 class CreateProfileService
@@ -16,17 +20,15 @@ class CreateProfileService
         $employee->update($data);
 
         //////city 
-        if($request['city']){
+        if($request['city'] ){ 
         $city =city::where('name',$request['city'] )->first();
         $employee->city_id = $city->id;
         $employee->save();
-        $employee['city']= $city->name;
         }else{
         $city =city::where('id',$employee->city_id)->first();
-        $employee['city']= $city->name;
-        }
+        $data =$city->name;}
         
-        //////////image 
+        // //////////image 
         if($request['image']) {
         $file =  $request->file('image'); 
         $exten = $file->getClientOriginalExtension();
@@ -36,14 +38,19 @@ class CreateProfileService
         $image_url = asset($filepath . $filename); 
         $employee->image = $image_url;
         $employee['image']= $image_url;
+        $employee->save();
         }
 
-
-        //////////return massage 
-        unset($employee->id , $employee->city_id, $employee->skills , $employee->user_id , $employee->updated_at , $employee->created_at ); 
-        return [ 'massage'=>'profile created', 'data'=>$employee];
+        $profile= DB::table('employees')
+        ->where('employees.id',1)
+        ->leftJoin('cities', 'cities.id', '=', 'employees.city_id')
+        ->get();
+    
+        unset( $employee->city_id , $employee->user_id , $employee->updated_at , $employee->created_at ); 
+        return [ 'massage'=>'profile created', 'data'=>$profile];
         
   
 
     }
 }
+

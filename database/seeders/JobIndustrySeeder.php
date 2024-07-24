@@ -14,23 +14,43 @@ class JobIndustrySeeder extends Seeder
     public function run(): void
     {
         JobIndustry::create([
-            'name'=> 'Computer and technology',
+            'name'=> 'Technology',
           ]);   
-
         JobIndustry::create([
             'name'=> 'Education',
           ]);   
-
         JobIndustry::create([
             'name'=> 'Entertainment',
           ]);   
-
         JobIndustry::create([
-            'name'=> 'Finance and economic',
+            'name'=> 'Finance',
           ]);   
-
         JobIndustry::create([
-            'name'=> ' Health care',
+            'name'=> 'Healthcare',
           ]);   
+          JobIndustry::create([
+            'name'=> 'Medicine',
+          ]);   
+          JobIndustry::create([
+            'name'=> 'Engineering',
+          ]);   
+          JobIndustry::create([
+            'name'=> 'Manufacturing',
+          ]);   
+          JobIndustry::create([
+            'name'=> 'Retail',
+          ]);   
+          JobIndustry::create([
+            'name'=> 'Sales',
+          ]);   
+          JobIndustry::create([
+            'name'=> 'Designing',
+          ]);   
+          JobIndustry::create([
+            'name'=> 'Government',
+          ]);   
+          JobIndustry::create([
+            'name'=> 'other',
+          ]); 
     }
 }
